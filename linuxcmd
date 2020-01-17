@@ -1,0 +1,49 @@
+# Switch root user
+sudo su
+
+# OS DETAILS
+sudo cat /etc/*release
+
+# Number of Core 
+grep -c ^processor /proc/cpuinfo 
+
+# Total Memory in HDD 
+sudo fdisk -l | grep Disk
+
+# Total Memory in RAM 
+cat /proc/meminfo | grep "MemTotal"
+
+# Port Listen 
+netstat -tulpn | grep LISTEN
+
+# Change the run level to multilevel user text mode for better performance
+systemctl get-default
+systemctl set-default multi-user.target
+
+# Change VM Swappiness to 10
+echo "vm.swappiness = 15" >> /etc/sysctl.conf
+
+# Disable SE Linux
+vi /etc/selinux/config 
+selinux=disabled
+
+#Firewall Disable
+systemctl disable firewalld
+systemctl status firewalld
+
+#NTP install 
+yum install ntp
+systemctl enable ntpd
+systemctl start ntpd
+systemctl status ntpd
+
+# Disable THP
+vi /etc/rc.local
+# paste below 2 line even restart the system it will work but if you only add 2 line its work but after restart machine it will not work.
+echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
+echo "never" > /sys/kernel/mm/transparent_hugepage/defrag
+
+
+
+
+
