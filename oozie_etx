@@ -1,0 +1,12 @@
+I finally solved it by installing a third-party version of ExtJS from the following url: http://archive.cloudera.com/gplextras/misc/ext-2.2.zip
+
+Then following the steps:
+
+Stop Oozie service from Ambari
+Copy it to the path:
+/usr/hdp/current/oozie-client/libext/
+
+Regenerate the war file by executing:
+$ /usr/hdp/current/oozie-server/bin/oozie-setup.sh prepare-war
+
+Start Oozie again
