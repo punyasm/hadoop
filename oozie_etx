@@ -10,3 +10,6 @@ Regenerate the war file by executing:
 $ /usr/hdp/current/oozie-server/bin/oozie-setup.sh prepare-war
 
 Start Oozie again
+
+
+https://oozie.apache.org/docs/5.0.0/DG_QuickStart.html#OozieShareLib
